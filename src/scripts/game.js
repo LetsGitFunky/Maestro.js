@@ -1,4 +1,4 @@
-import { playMelody } from './sound.js';
+import { playMelody, playNote } from './sound.js';
 
 const melodies = [
     ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
@@ -6,39 +6,45 @@ const melodies = [
     ["C4", "C5", "B4", "G4", "A4", "B4", "C5"]
 ]
 
-// will pull random melody from melodies array and call newGameRound on that melody
-// function startNewGame() {
-//     let randomIndex = Math.floor(Math.random() * melodies.length);
-//     newGameRound(melodies[randomIndex]);
-// }
 
+export class Game {
+    constructor() {
+        this.currentMelody = [];
+        this.userMelody = [];
+        this.userMelodyTemp = [];
+        this.currentStreak = 0;
+        this.startNewGame();
+    }
 
-// let currentMelody = [];
-// let userMedody = [];
-// let currentStreak = 0;
+    startNewGame() {
+        let randomIndex = Math.floor(Math.random() * melodies.length);
+        this.currentMelody = melodies[randomIndex];
+        this.currentStreak = 0;
+        this.userMelody = [];
+        this.playCurrentMelody();
+    }
 
-// export function newGameRound(melody) {
-//     currentMelody = melody;
-//     userMedody = [];
-//     currentStreak = 0;
-// }
+    playCurrentMelody() {
+        const melodySlice = this.currentMelody.slice(0, this.userMelody.length + 1);
+        playMelody(melodySlice);
+    }
 
-// export function handleNotePlayed(note) {
-//     userMedody.push(note);
+    handleNotePlayed(note) {
+        console.log(this)
+        this.userMelodyTemp.push(note);
 
-//     for (let i = 0; i < userMedody.length; i++) {
-//         if (userMedody[i] !== currentMelody[i]) {
-//             currentStreak = 0;
-//             userMedody = [];
-//             playMelody(currentMelody);
-//             // repeat current melody to player
-//         }
-//         if (userMedody.length === currentMelody.length) {
-//             currentStreak ++;
-//             userMedody = [];
-//             // currentMelody.push(nextNoteFromMelody)
-//             // playMelody(currentMelody)
-//             // move on to next round
-//         }
-//     }
-// }
+        let userMelodyString = this.userMelodyTemp.join("");
+        let currentMelodyString = this.currentMelody.slice(0, this.userMelodyTemp.length).join("");
+
+        if (userMelodyString !== currentMelodyString) {
+            this.currentStreak = 0;
+            this.userMelodyTemp = [];
+            setTimeout(() => this.playCurrentMelody(), 1000);
+            return;
+        } else {
+            this.currentStreak++;
+            this.userMelody = [...this.userMelodyTemp];
+            setTimeout(() => this.playCurrentMelody(), 1000);
+        }
+    }
+}

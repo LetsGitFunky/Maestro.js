@@ -1,19 +1,22 @@
 import * as Tone from 'tone';
 import { playNote } from './sound';
+// import { handleNotePlayed } from './game.js';
 
 
-// exported to index.js
-export function userPlaysNotes() {
+export function attachEventListeners(game) {
     const synth = new Tone.Synth().toDestination();
 
-    const noteDivs = document.querySelectorAll(".piano-container .white-key, .piano-container .black-key");
-    noteDivs.forEach(noteDiv => {
-        noteDiv.addEventListener("click", () => {
-            const note = noteDiv.id;
+    const piano = document.getElementById("piano")
+        piano.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const note = e.target.id;
+            console.log(note)
             playNote(note);
-            // handleNotePlayed(note);
+            if (game) {
+                game.handleNotePlayed(note);
+            }
         });
-    });
+
 
     const keyMap = {
         "a": { note: "C4", div: document.querySelector('#C4') },
@@ -32,11 +35,15 @@ export function userPlaysNotes() {
     };
 
     window.addEventListener("keydown", (e) => {
+        e.stopPropagation();
         if (keyMap[e.key]) {
+            console.log(keyMap[e.key].note)
             playNote(keyMap[e.key].note);
-            // handleNotePlayed(keyMap[e.key].note)
             keyMap[e.key].div.classList.add("active");
             setTimeout(() => keyMap[e.key].div.classList.remove('active'), 200);
+            if (game) {
+                game.handleNotePlayed(keyMap[e.key].note);
+            }
         }
     })
 };
