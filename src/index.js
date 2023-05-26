@@ -1,4 +1,8 @@
+import './styles/main.scss';
+import { userPlaysNotes } from './scripts/events.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     let body = document.querySelector('body');
-    body.innerHTML = "<h1>Welcome to musical memory game!</h1>";
+    userPlaysNotes() // from events.js
+
 });

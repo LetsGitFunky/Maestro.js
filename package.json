@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "browserslist": [
-    "defaults"],
+    "defaults"
+  ],
   "scripts": {
     "watch": "webpack --watch --mode=development",
     "build": "webpack --mode=production"
@@ -22,6 +23,7 @@
     "regenerator-runtime": "^0.13.11",
     "sass": "^1.62.1",
     "sass-loader": "^13.3.0",
+    "tone": "^14.7.77",
     "webpack": "^5.84.0",
     "webpack-cli": "^5.1.1"
   }

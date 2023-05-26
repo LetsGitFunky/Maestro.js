@@ -1,3 +1,133 @@
+/*!*******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss ***!
+  \*******************************************************************************************************************************************/
+body {
+  margin: 0;
+  background: #222;
+}
+
+.piano-container {
+  display: flex;
+  justify-content: center;
+}
+
+#piano {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 420px;
+  background-image: url("../assets/images/ebony.jpg");
+}
+
+.white-key {
+  height: 180px;
+  width: 50px;
+  border: 1px solid black;
+  z-index: 1;
+  position: relative;
+  background: linear-gradient(180deg, #f8f8f8 10%, white 90%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  margin: 0 -2px;
+}
+
+.white-key:active {
+  background: rgb(181, 181, 181);
+}
+
+.white-key.active {
+  background: rgb(181, 181, 181);
+  /* You can add additional styles here if you want */
+}
+
+.black-key {
+  height: 100px;
+  width: 35px;
+  border: 1px solid black;
+  background-color: black;
+  z-index: 2;
+  position: relative;
+  margin-left: -17px;
+  margin-right: -17px;
+  margin-top: -80px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.black-key:active {
+  background: rgb(55, 53, 55);
+}
+
+.black-key.active {
+  background: rgb(55, 53, 55);
+}
+
+.note-name {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.black-name {
+  color: whitesmoke;
+  padding: 7px 0;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
