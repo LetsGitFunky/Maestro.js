@@ -12,12 +12,12 @@ export function attachEventListeners(game) {
 
     const piano = document.getElementById("piano")
         piano.addEventListener("click", (e) => {
-            console.log(e, "this is e")
+            // console.log(e, "this is e")
             e.stopPropagation();
             const note = e.target.id;
             // console.log(note, "this is note")
             if (note !== "piano") {
-                console.log(note)
+                // console.log(note)
                 playNote(note);
                 if (game) {
                     game.handleNotePlayed(note);
