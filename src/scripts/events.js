@@ -1,20 +1,28 @@
 import * as Tone from 'tone';
-import { playNote } from './sound';
-// import { handleNotePlayed } from './game.js';
+import { playNote, synth } from './sound';
+
+import { handleNotePlayed } from './game.js';
 
 
 export function attachEventListeners(game) {
-    const synth = new Tone.Synth().toDestination();
+    // const synth = new Tone.Synth().toDestination();
+    console.log(game), "this is game"
+    // console.log(piano, "this is piano")
+
 
     const piano = document.getElementById("piano")
         piano.addEventListener("click", (e) => {
+            console.log(e, "this is e")
             e.stopPropagation();
             const note = e.target.id;
-            console.log(note)
-            playNote(note);
-            if (game) {
-                game.handleNotePlayed(note);
-            }
+            // console.log(note, "this is note")
+            if (note !== "piano") {
+                console.log(note)
+                playNote(note);
+                if (game) {
+                    game.handleNotePlayed(note);
+                };
+            };
         });
 
 
