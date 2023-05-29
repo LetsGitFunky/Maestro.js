@@ -13,6 +13,7 @@ export class Game {
         this.userMelody = [];
         this.userMelodyTemp = [];
         this.isPlaying = false;
+        // this.earTrainingMode = false;
         this.startNewGame();
     }
 
@@ -23,15 +24,27 @@ export class Game {
         setTimeout(() => this.playCurrentMelody(), 500);
     }
 
+    // ATTEMPTING EAR TRAINING MODE
+    // playCurrentMelody() {
+    //     if (!this.isPlaying) {
+    //         this.isPlaying = true;
+    //         const melodySlice = this.currentMelody.slice(0, this.userMelody.length + 1);
+    //         playMelody(melodySlice).then(() => {
+    //             this.isPlaying = false;
+    //         });
+    //     }
+    // }
+
     playCurrentMelody() {
         if (!this.isPlaying) {
             this.isPlaying = true;
             const melodySlice = this.currentMelody.slice(0, this.userMelody.length + 1);
-            playMelody(melodySlice).then(() => {
+            playMelody(melodySlice, this).then(() => {
                 this.isPlaying = false;
             });
         }
     }
+
 
     handleNotePlayed(note) {
         if (this.isPlaying) return;
@@ -77,11 +90,6 @@ export class Game {
         // Add the show class to start the animation
         messageElement.classList.add('show');
 
-        // Add an event listener to the message element that will start a new game when the message is clicked
-        // messageElement.addEventListener('click', () => {
-        //     messageElement.classList.remove('show');
-        //     this.startNewGame();
-        // }, { once: true }); // The { once: true } option ensures the listener is only called once
     }
 
 }

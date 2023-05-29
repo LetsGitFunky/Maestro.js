@@ -42,6 +42,9 @@ body {
     /* You can add additional styles here if you want */
 }
 
+.white-key.computer-active {
+    background: cyan;
+}
 
 .black-key {
     height: 100px;
@@ -81,10 +84,7 @@ body {
 
 // cpu melody key color changes
 
-.white-key.computer-active {
-    background: cyan; /* Example color */
-}
 
 .black-key.computer-active {
-    background: cyan; /* Example color */
+    background: cyan;
 }

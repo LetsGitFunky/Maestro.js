@@ -53,4 +53,16 @@ export function attachEventListeners(game) {
             }
         }
     })
+
+
+    // ATTEMPTING EAR TRAINING MODE
+    // if (!attachEventListeners.hasRun) {
+    //     const earTrainingButton = document.getElementById('ear-training-mode');
+    //     earTrainingButton.addEventListener('click', () => {
+    //         game.earTrainingMode = !game.earTrainingMode;
+    //         earTrainingButton.innerText = game.earTrainingMode ? 'Disable Ear Training Mode' : 'Enable Ear Training Mode';
+    //     });
+    //     attachEventListeners.hasRun = true;
+    // }
+
 };

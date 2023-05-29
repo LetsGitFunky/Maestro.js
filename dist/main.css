@@ -43,6 +43,10 @@ body {
   /* You can add additional styles here if you want */
 }
 
+.white-key.computer-active {
+  background: cyan;
+}
+
 .black-key {
   height: 100px;
   width: 35px;
@@ -79,12 +83,8 @@ body {
   padding: 7px 0;
 }
 
-.white-key.computer-active {
-  background: cyan; /* Example color */
-}
-
 .black-key.computer-active {
-  background: cyan; /* Example color */
+  background: cyan;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -188,6 +188,31 @@ table {
 #new-game:active {
   background: rgb(55, 53, 55);
   color: white;
+}
+
+#instructions {
+  color: #f9f6f2;
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 16px;
+  width: 70%;
+  margin: 20px auto;
+  font-family: "Arial", sans-serif;
+  font-size: 1.3em;
+  line-height: 1.6em;
+  box-shadow: 0 0 10px #f9f6f2;
+}
+
+#instructions h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#instructions ul li {
+  margin-bottom: 15px;
+  text-indent: 20px;
 }
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!

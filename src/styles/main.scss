@@ -57,3 +57,28 @@
     background: rgb(55, 53, 55);
     color: white;
 }
+
+#instructions {
+    color: #f9f6f2;
+    background: #1b1b1b;
+    padding: 20px;
+    border-radius: 16px;
+    width: 70%;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    box-shadow: 0 0 10px #f9f6f2;
+}
+
+#instructions h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#instructions ul li {
+    margin-bottom: 15px;
+    text-indent: 20px;
+}
