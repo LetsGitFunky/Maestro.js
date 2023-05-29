@@ -79,6 +79,14 @@ body {
   padding: 7px 0;
 }
 
+.white-key.computer-active {
+  background: cyan; /* Example color */
+}
+
+.black-key.computer-active {
+  background: cyan; /* Example color */
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -155,6 +163,31 @@ table {
 .message.show {
   animation: fadein 2s;
   opacity: 1;
+}
+
+#new-game {
+  display: inline-block;
+  background: linear-gradient(180deg, #f8f8f8 10%, white 90%);
+  border: 1px solid black;
+  color: black;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#new-game:hover {
+  background: rgb(181, 181, 181);
+  color: black;
+}
+
+#new-game:active {
+  background: rgb(55, 53, 55);
+  color: white;
 }
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
