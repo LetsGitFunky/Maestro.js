@@ -20,4 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
     practiceModeButton.addEventListener('click', () => {
         game.togglePracticeMode();
     });
+
+    const earTrainingModeButton = document.getElementById('ear-training');
+
+    earTrainingModeButton.addEventListener('click', () => {
+        game.toggleEarTrainingMode();
+    });
+
 });

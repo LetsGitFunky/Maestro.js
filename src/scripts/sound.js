@@ -16,18 +16,22 @@ export function playNote(note) {
     }
 }
 
-export function playMelody(melody) {
+export function playMelody(melody, game) {
     return new Promise(resolve => {
         melody.forEach((note, index) => {
             setTimeout(() => {
                 // get notes
                 const keyElement = document.querySelector(`#${note}`);
-                // create computer class so notes light up when cpu plays
-                keyElement.classList.add('computer-active');
+                if (!game.isEarTrainingMode) {
+                    // create computer class so notes light up when cpu plays
+                    keyElement.classList.add('computer-active');
+                }
                 // play note
                 playNote(note);
                 // remove active class
-                setTimeout(() => keyElement.classList.remove('computer-active'), 200);
+                if (!game.isEarTrainingMode) {
+                    setTimeout(() => keyElement.classList.remove('computer-active'), 200);
+                }
                 // We're done playing the melody, so resolve the promise
                 if (index === melody.length - 1) {
                     resolve();

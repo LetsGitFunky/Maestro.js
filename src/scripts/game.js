@@ -16,9 +16,14 @@ export class Game {
         this.userMelodyTemp = [];
         this.isPlaying = false;
         this.isPracticeMode = true;
-        // this.earTrainingMode = false;
+        this.earTrainingMode = false;
         // this.startNewGame();
     }
+
+    toggleEarTrainingMode() {
+        this.isEarTrainingMode = !this.isEarTrainingMode;
+    }
+
 
     togglePracticeMode() {
         this.isPracticeMode = !this.isPracticeMode;
