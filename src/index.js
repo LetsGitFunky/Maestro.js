@@ -26,5 +26,4 @@ document.addEventListener("DOMContentLoaded", () => {
     earTrainingModeButton.addEventListener('click', () => {
         game.toggleEarTrainingMode();
     });
-
 });

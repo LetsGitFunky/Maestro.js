@@ -40,25 +40,3 @@ export function playMelody(melody, game) {
         });
     });
 };
-
-
-//  ATTEMPTING EAR TRAINING MODE
-// export function playMelody(melody, game) {
-//     return new Promise(resolve => {
-//         melody.forEach((note, index) => {
-//             setTimeout(() => {
-//                 const keyElement = document.querySelector(`#${note}`);
-//                 if (!game.earTrainingMode) {
-//                     keyElement.classList.add('computer-active');
-//                 }
-//                 playNote(note);
-//                 if (!game.earTrainingMode) {
-//                     setTimeout(() => keyElement.classList.remove('computer-active'), 200);
-//                 }
-//                 if (index === melody.length - 1) {
-//                     resolve();
-//                 }
-//             }, 750 + (index * 750));
-//         });
-//     });
-// };

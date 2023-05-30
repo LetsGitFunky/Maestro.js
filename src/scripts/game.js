@@ -2,9 +2,9 @@ import { playMelody, playNote, playTriumphSound } from './sound.js';
 
 const melodies = [
     ["C4", "D4"],
-    // ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
-    // ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
-    // ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
+    ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
+    ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
+    ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
 
 ];
 
@@ -39,17 +39,6 @@ export class Game {
         setTimeout(() => this.playCurrentMelody(), 500);
     }
 
-    // ATTEMPTING EAR TRAINING MODE
-    // playCurrentMelody() {
-    //     if (!this.isPlaying) {
-    //         this.isPlaying = true;
-    //         const melodySlice = this.currentMelody.slice(0, this.userMelody.length + 1);
-    //         playMelody(melodySlice).then(() => {
-    //             this.isPlaying = false;
-    //         });
-    //     }
-    // }
-
     playCurrentMelody() {
         if (!this.isPlaying) {
             this.isPlaying = true;
@@ -59,7 +48,6 @@ export class Game {
             });
         }
     }
-
 
     handleNotePlayed(note) {
         if (this.isPlaying) return;
@@ -95,7 +83,7 @@ export class Game {
     }
 
     youWin() {
-        // Add a delay of 500ms before playing the triumphant sound
+        // Add a delay before playing the triumphant sound
         setTimeout(() => {
             playTriumphSound();
         }, 750);
@@ -109,7 +97,6 @@ export class Game {
         const messageElement = document.getElementById('message');
 
         // Set the message text
-        // messageElement.textContent = "Congratulations, you've completed the melody! Click here to start a new game.";
         messageElement.innerHTML = "Congratulations, you have completed the melody! <br> Encore!";
 
         // Add the show class to start the animation
@@ -117,6 +104,7 @@ export class Game {
 
     }
 
+    // helper function so that victory message persists until start of next game.
     hideMessage() {
         const messageElement = document.getElementById('message');
         messageElement.classList.remove('show');
