@@ -1,15 +1,15 @@
 import { playMelody, playNote, playTriumphSound } from './sound.js';
 
 const melodies = [
-    // ["C4", "D4"],
-    // ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
-    // ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
-    // ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
-    // ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
-    // ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
-    // ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
-    // ["C4", "G4", "C5", "Bb4", "A4", "Bb4", "Eb4"],
-    ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"]
+    ["C4", "D4"],
+    ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
+    ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
+    ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
+    ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
+    ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
+    ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
+    ["C4", "G4", "C5", "Bb4", "A4", "Bb4", "Eb4"],
+    ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
 
 ];
 
@@ -37,17 +37,23 @@ export class Game {
     updateNoteCount() {
         const noteCountElement = document.getElementById('note-count');
         noteCountElement.textContent = `Progress: ${this.userMelody.length} / ${this.currentMelody.length}`;
+
+        // Add the glow class to the element
+        noteCountElement.classList.add('note-count-glow');
+
+        // Remove the class after 2 seconds (the duration of the glow animation)
+        setTimeout(() => noteCountElement.classList.remove('note-count-glow'), 5000);
     }
 
 
     startNewGame() {
+        this.isPracticeMode = false;
         let randomIndex = Math.floor(Math.random() * melodies.length); // comment out for youWin testingasdg
         this.currentMelody = melodies[randomIndex]; // comment out for youWin testing
         this.hideMessage();
         this.userMelody = [];
         this.updateNoteCount();
         this.userMelodyTemp = [];
-        this.isPracticeMode = false;
         setTimeout(() => this.playCurrentMelody(), 500);
     }
 
@@ -115,6 +121,8 @@ export class Game {
         // Add the show class to start the animation
         messageElement.classList.add('show');
 
+        //
+        this.isPracticeMode = true;
     }
 
     // helper function so that victory message persists until start of next game.
