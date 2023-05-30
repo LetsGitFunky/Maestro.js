@@ -1,37 +1,89 @@
 @import "piano.scss";
 @import "_reset.scss";
 
-// body {
-//     background-color: red;
-//   }
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    margin: 0;
+    background: #222;
+}
+
+.top-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#instructions {
+    color: #f9f6f2;
+    background: #1b1b1b;
+    padding: 20px;
+    border-radius: 16px;
+    width: 70%;
+    height: 70%;
+    overflow: auto;
+    margin: 20px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    box-shadow: 0 0 10px #f9f6f2;
+    list-style: none;
+}
+
+#instructions h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#instructions li {
+    margin-bottom: 2px;
+    padding-left: 20px;
+    text-indent: -20px;
+}
+
+#instructions li:before {
+    content: "♫ ";
+    font-size: 20px;
+    vertical-align: middle;
+}
 
 // victory message
 @keyframes fadein {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+0% { opacity: 0; }
+100% { opacity: 1; }
 }
 
 .message {
-    opacity: 0;
-    transition: opacity 2s;
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2.2vw;
-    font-family: cursive;
-    text-align: center;
-    background-color: white;
-    border: 6px ridge gold;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
-    z-index: 4;
+opacity: 0;
+transition: opacity 2s;
+position: relative;
+bottom: unset;
+left: unset;
+transform: unset;
+font-size: 2.2vw;
+font-family: cursive;
+text-align: center;
+background-color: white;
+border: 6px ridge gold;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+z-index: 4;
+align-self: center;
 }
 
 .message.show {
-    animation: fadein 2s;
-    opacity: 1;
+animation: fadein 2s;
+opacity: 1;
+}
+
+.piano-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .piano-button {
@@ -67,36 +119,39 @@
     flex-direction: column;
 }
 
-
-#instructions {
-    color: #f9f6f2;
-    background: #1b1b1b;
-    padding: 20px;
-    border-radius: 16px;
-    width: 70%;
-    margin: 20px auto;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.3em;
-    line-height: 1.6em;
-    box-shadow: 0 0 10px #f9f6f2;
-    list-style: none;
-}
-
-#instructions h2 {
+.note-count {
+    display: block;
+    background-image: url("../assets/images/ebony.jpg");
+    border: 6px ridge gold;
+    color: #ffd000;
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin: 1vh;
+    border-radius: 10px;
     text-align: center;
+    text-decoration: none;
     font-size: 2em;
-    margin-bottom: 20px;
-    font-weight: bold;
+    font-family: cursive;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.1);
+    width: 18vw;
+    max-width: 280px;
+    height: 6vh;
 }
 
-#instructions li {
-    margin-bottom: 2px;
-    padding-left: 20px;
-    text-indent: -20px;
-}
 
-#instructions li:before {
-    content: "♫ ";
-    font-size: 20px;
-    vertical-align: middle;
-}
+
+
+// .diagram-container {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     margin-top: 20px;
+    // }
+
+    // #keyboard-diagram {
+        //     margin: auto;
+        //     width: 20%;
+        //     height: auto;
+        // }

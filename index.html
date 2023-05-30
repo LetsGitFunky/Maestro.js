@@ -9,26 +9,31 @@
     <script src="./dist/main.js"></script>
     <!-- <script src="./src/index.js"></script> -->
 
-    <title>Musical Memory Game</title>
+    <title>Maestro.js</title>
   </head>
 
   <body>
-    <div id="message" class="message"></div>
+    <div class="top-section">
 
-    <section id="instructions">
-      <h2>Welcome to Maestro.js</h2>
-      <p>Test your memory and your ear:</p>
-      <ul>
-        <li>Maestro commences the melody with a solitary note. Replicate this note to begin.</li>
-        <li>Each round, Maestro will add notes to the melody for you to recall and repeat.</li>
-        <li>Use your mouse or your keyboard.</li>
-        <li>Can you complete the melody from memory?</li>
-      </ul>
-    </section>
+      <section id="instructions">
+        <h2>Welcome to Maestro.js</h2>
+        <p>Put your aural memory and musical intuition to the test:</p>
+        <ul>
+          <li>Maestro strikes the first note of our melody. Play it back to set the stage.</li>
+          <li>Each round, Maestro embellishes the tune. Echo these notes in proper sequence.</li>
+          <li>Tickle the ivories with mouse or keyboard. </li>
+          <li>The finale: Can you reproduce the full melody from memory?</li>
+        </ul>
+      </section>
+
+      <div id="message" class="message"></div>
+    </div>
 
     <div class="piano-container">
       <div id="piano">
-        <button id="new-game" class="piano-button">New Game</button>
+        <div class="button-column">
+          <button id="new-game" class="piano-button">New Game</button>
+        </div>
         <div id="C4" class="white-key piano-key"><span id="C4" class="note-name">C</span></div>
         <div id="Db4" class="black-key piano-key"><span id="Db4" class="note-name black-name">Db</span></div>
         <div id="D4" class="white-key piano-key"><span id="D4" class="note-name">D</span></div>
@@ -47,7 +52,12 @@
           <button id="practice-mode" class="piano-button">Practice Mode</button>
         </div>
       </div>
+      <div id="note-count" class="note-count">Progress: 0 / 0</div>
     </div>
+    <!-- <div class="diagram-container">
+      <img id="keyboard-diagram" src="assets/images/Screenshot 2023-05-29 at 8.03.03 PM (2).png" alt="keyboard-diagram">
+    </div> -->
+
   </body>
 
 </html>

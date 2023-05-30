@@ -31,11 +31,18 @@ export class Game {
         this.isPracticeMode = !this.isPracticeMode;
     }
 
+    updateNoteCount() {
+        const noteCountElement = document.getElementById('note-count');
+        noteCountElement.textContent = `Progress: ${this.userMelody.length} / ${this.currentMelody.length}`;
+    }
+
+
     startNewGame() {
         let randomIndex = Math.floor(Math.random() * melodies.length); // comment out for youWin testingasdg
         this.currentMelody = melodies[randomIndex]; // comment out for youWin testing
         this.hideMessage();
         this.userMelody = [];
+        this.updateNoteCount();
         this.userMelodyTemp = [];
         this.isPracticeMode = false;
         setTimeout(() => this.playCurrentMelody(), 500);
@@ -67,6 +74,7 @@ export class Game {
                 if (this.userMelodyTemp.length === this.userMelody.length + 1) {
                     // The user successfully entered the sequence, move to the next round
                     this.userMelody = [...this.userMelodyTemp];
+                    this.updateNoteCount();
                     this.userMelodyTemp = []; // Reset temporary melody
 
                     // Check if the user has won the game
