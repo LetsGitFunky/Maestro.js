@@ -79,6 +79,7 @@
     font-size: 1.3em;
     line-height: 1.6em;
     box-shadow: 0 0 10px #f9f6f2;
+    list-style: none;
 }
 
 #instructions h2 {
@@ -88,7 +89,14 @@
     font-weight: bold;
 }
 
-#instructions ul li {
-    margin-bottom: 15px;
-    text-indent: 20px;
+#instructions li {
+    margin-bottom: 2px;
+    padding-left: 20px;
+    text-indent: -20px;
+}
+
+#instructions li:before {
+    content: "♫ ";
+    font-size: 20px;
+    vertical-align: middle;
 }
