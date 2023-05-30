@@ -26,4 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
     earTrainingModeButton.addEventListener('click', () => {
         game.toggleEarTrainingMode();
     });
+
+    const viewDiagramButton = document.getElementById("viewDiagramButton");
+
+    const keyboard = document.getElementsByClassName("keyboard")[0];
+
+    viewDiagramButton.addEventListener("click", (e) => {
+        let keyboardStyle = window.getComputedStyle(keyboard).visibility;
+        if (keyboardStyle === "hidden") {
+            keyboard.style.visibility = "visible";
+            viewDiagramButton.innerText = "Hide Keys";
+        } else {
+            keyboard.style.visibility = "hidden";
+            viewDiagramButton.innerText = "Show Keys"
+        }
+    });
+
 });

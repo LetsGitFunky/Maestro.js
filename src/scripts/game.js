@@ -2,14 +2,14 @@ import { playMelody, playNote, playTriumphSound } from './sound.js';
 
 const melodies = [
     ["C4", "D4"],
-    ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
-    ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
-    ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
-    ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
-    ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
-    ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
-    ["C4", "G4", "C5", "Bb4", "A4", "Bb4", "Eb4"],
-    ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
+    // ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
+    // ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
+    // ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
+    // ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
+    // ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
+    // ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
+    // ["C4", "G4", "C5", "Bb4", "A4", "Bb4", "Eb4"],
+    // ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
 
 ];
 
@@ -32,6 +32,7 @@ export class Game {
 
     togglePracticeMode() {
         this.isPracticeMode = !this.isPracticeMode;
+        this.hideMessage();
     }
 
     updateNoteCount() {

@@ -20,42 +20,49 @@
           <li>Maestro strikes the first note of our melody. Play it back to set the stage.</li>
           <li>Each round, Maestro embellishes the tune. Echo these notes in proper sequence.</li>
           <li>Tickle the ivories with mouse or keyboard.</li>
-          <li>Wanna jam? Enable 'Practice Mode'.</li>
-          <li>Virtuoso? Try 'Ear Training Mode' for an added challenge.</li>
+          <li>Wanna jam? Enable <strong>'Practice Mode'</strong>.</li>
+          <li>Virtuoso? Try <strong>'Ear Training Mode'</strong> for an added challenge.</li>
           <li>The Finale: Can you reproduce the full melody from memory?</li>
         </ul>
       </section>
-
-      <div class="keyboard">
-      <div class="keyboard-row">
-        <div class="key-letter accidental" data-char="W">W</div>
-        <div class="key-letter accidental" data-char="E">E</div>
-        <div class="key-letter transparent" data-char="R"></div>
-        <div class="key-letter accidental" data-char="T">T</div>
-        <div class="key-letter accidental" data-char="Y">Y</div>
-        <div class="key-letter accidental" data-char="U">U</div>
-        <div class="key-letter transparent" data-char="I"></div>
-      </div>
-      <div class="keyboard-row">
-        <div class="key-letter natural" data-char="A">A</div>
-        <div class="key-letter natural" data-char="S">S</div>
-        <div class="key-letter natural" data-char="D">D</div>
-        <div class="key-letter natural" data-char="F">F</div>
-        <div class="key-letter natural" data-char="G">G</div>
-        <div class="key-letter natural" data-char="H">H</div>
-        <div class="key-letter natural" data-char="J">J</div>
-        <div class="key-letter natural" data-char="K">K</div>
-      </div>
-    </div>
-
       <div id="message" class="message"></div>
-    </div>
 
-    <div class="piano-container">
-      <div id="piano">
-        <div class="button-column">
-          <button id="new-game" class="piano-button">New Game</button>
+      <div class="keyboard-container">
+        <div class="keyboard">
+          <div class="keyboard-row">
+            <div class="key-letter accidental" data-char="W">W</div>
+            <div class="key-letter accidental" data-char="E">E</div>
+            <div class="key-letter transparent" data-char="R"></div>
+            <div class="key-letter accidental" data-char="T">T</div>
+            <div class="key-letter accidental" data-char="Y">Y</div>
+            <div class="key-letter accidental" data-char="U">U</div>
+            <div class="key-letter transparent" data-char="I"></div>
+          </div>
+
+          <div class="keyboard-row">
+            <div class="key-letter natural" data-char="A">A</div>
+            <div class="key-letter natural" data-char="S">S</div>
+            <div class="key-letter natural" data-char="D">D</div>
+            <div class="key-letter natural" data-char="F">F</div>
+            <div class="key-letter natural" data-char="G">G</div>
+            <div class="key-letter natural" data-char="H">H</div>
+            <div class="key-letter natural" data-char="J">J</div>
+            <div class="key-letter natural" data-char="K">K</div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="piano-container">
+    <div id="piano">
+
+      <div class="button-column">
+        <button id="new-game" class="piano-button">New Game</button>
+        <button id="viewDiagramButton" class="viewDiagram piano-button">Show Keys</button>
+        <div id="note-count" class="note-count">Progress: 0 / 0</div>
+        </div>
+
         <div id="C4" class="white-key piano-key"><span id="C4" class="note-name">C</span></div>
         <div id="Db4" class="black-key piano-key"><span id="Db4" class="note-name black-name">Db</span></div>
         <div id="D4" class="white-key piano-key"><span id="D4" class="note-name">D</span></div>
@@ -69,12 +76,13 @@
         <div id="Bb4" class="black-key piano-key"><span id="Bb4" class="note-name black-name">Bb</span></div>
         <div id="B4" class="white-key piano-key"><span id="B4" class="note-name">B</span></div>
         <div id="C5" class="white-key piano-key"><span id="C5" class="note-name">C</span></div>
+
         <div class="button-column">
           <button id="practice-mode" class="piano-button">Practice Mode</button>
           <button id="ear-training" class="piano-button">Ear Training</button>
         </div>
+
       </div>
-      <div id="note-count" class="note-count">Progress: 0 / 0</div>
     </div>
 
 
