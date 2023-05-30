@@ -4,7 +4,7 @@
 body {
     display: grid;
     grid-template-rows: auto auto 1fr;
-    gap: 40px;
+    gap: 10px;
     margin: 0;
     background: #222;
 }
@@ -19,10 +19,10 @@ body {
 #instructions {
     color: #f9f6f2;
     background: #1b1b1b;
-    padding: 20px;
+    padding:20px;
     border-radius: 16px;
     width: 70%;
-    height: 70%;
+    height: 60%;
     // overflow: auto;
     margin: 20px auto;
     font-family: Arial, Helvetica, sans-serif;
@@ -35,10 +35,10 @@ body {
 #instructions h2 {
     text-align: center;
     font-family: cursive;
-    text-shadow: 5px, 5px, 5px white;
     text-decoration: underline;
+    -webkit-text-stroke: 0.001px #f1dd70;
     font-size: 3em;
-    color: ivory;
+    color: rgb(248, 237, 137);
     margin-bottom: 20px;
     font-weight: bold;
 }
@@ -107,6 +107,7 @@ opacity: 1;
     width: 15vw;
     max-width: 150px;
     height: 6vh;
+    cursor: pointer;
 }
 
 .piano-button:hover {
@@ -154,16 +155,72 @@ opacity: 1;
     animation: glow 2.5s ease-in-out infinite alternate;
 }
 
+// keyboard div
 
-// .diagram-container {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         margin-top: 20px;
-//     }
+.keyboard {
+    text-align: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(212, 209, 209);
+    width: 25%;
+    border: 1px inset #1b1b1b;
+    border-radius: 16px;
+}
 
-//     #keyboard-diagram {
-//             margin: auto;
-//             width: 20%;
-//             height: auto;
-//         }
+// .keyboard__row {
+//     display: inline-block;
+//     height: 3em;
+//     margin: 0.2em;
+// }
+
+.keyboard-row {
+    display: flex;
+    justify-content: center; // To center the keys in each row
+    height: 3em;
+    margin: 0.2em;
+    width: 100%;
+}
+
+.keyboard-row > * {
+    position: relative;
+    text-align: center;
+    color: #eee;
+    border-radius: 0.3em;
+    margin: 0.2em;
+    padding: 0.2em;
+    width: 3.3em;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid #444;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    border-bottom-color: #555;
+}
+
+.key-letter {
+    line-height: 2.8em;
+}
+
+.keyboard > .keyboard-row {
+    text-align: center;
+}
+
+.natural {
+    // background-color: white;
+    background: linear-gradient(180deg, #f8f8f8 10%, white 90%);
+    color: black;
+}
+
+.accidental {
+    background: linear-gradient(to bottom, rgba(30,30,30,1) 0%, rgba(0,0,0,1) 80%);
+    // background-color: black;
+    color: white;
+}
+
+.transparent {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
