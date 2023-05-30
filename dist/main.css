@@ -19,7 +19,7 @@ body {
   border: 3px inset #000;
   border-radius: 16px;
   box-shadow: 0 0 20px #f9f6f2;
-  padding: 10px;
+  padding: 0px 0px 10px 0px;
   width: 90%;
   max-width: 960px;
   background-image: url("../assets/images/ebony.jpg");
@@ -140,7 +140,6 @@ body {
   text-align: center;
   padding: 20px 0;
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
   z-index: 3;
 }
 
@@ -148,7 +147,6 @@ body {
   color: whitesmoke;
   padding: 20px 0;
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
   z-index: 3;
 }
 
@@ -208,6 +206,7 @@ body {
   gap: 10px;
   margin: 0;
   background: #222;
+  font-family: Montserrat;
 }
 
 .top-section {
@@ -219,13 +218,14 @@ body {
 
 #instructions {
   color: #f9f6f2;
+  text-align: center;
   background: #1b1b1b;
   padding: 20px;
+  border: 1px ridge #1b1b1b;
   border-radius: 16px;
   width: 70%;
   height: 60%;
   margin: 20px auto;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.3em;
   line-height: 1.6em;
   box-shadow: 0 0 10px #f9f6f2;
@@ -253,6 +253,7 @@ body {
   content: "♫ ";
   font-size: 20px;
   vertical-align: middle;
+  color: rgb(248, 237, 137);
 }
 
 @keyframes fadein {
@@ -296,15 +297,15 @@ body {
 .piano-button {
   display: block;
   background: linear-gradient(-30deg, #1e1e1e 20%, rgb(65, 63, 63) 80%);
-  border: 1px ridge rgb(255, 255, 255);
-  color: rgb(249, 249, 247);
-  padding: 1vh 2vw;
+  border: 1px ridge rgb(248, 237, 137);
+  color: rgb(248, 237, 137);
+  padding: 1vh 0.5vw;
   margin: 1vh;
   border-radius: 10px;
   text-align: center;
-  text-decoration: none;
+  font-weight: bold;
   font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Montserrat;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   width: 15vw;
   max-width: 150px;
@@ -313,7 +314,7 @@ body {
 }
 
 .piano-button:hover {
-  background: linear-gradient(30deg, white, rgb(97, 87, 87));
+  background: linear-gradient(30deg, rgb(248, 237, 137), #c7ac12);
   color: rgb(43, 43, 43);
 }
 
@@ -330,12 +331,13 @@ body {
 .note-count {
   display: block;
   background-image: url("../assets/images/ebony.jpg");
-  border: 6px ridge gold;
-  color: #ffd000;
+  border: 6px ridge rgb(248, 237, 137);
+  color: rgb(248, 237, 137);
+  -webkit-text-stroke: 0.001px #f1dd70;
   padding-top: 3vh;
   padding-bottom: 1vh;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
   margin: 3vh 1vh 1vh 1vh;
   border-radius: 10px;
   text-align: center;
@@ -350,10 +352,10 @@ body {
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffd700, 0 0 20px #ffd700;
+    box-shadow: 0 0 5px rgb(248, 237, 137), 0 0 10px rgb(248, 237, 137), 0 0 15px rgb(248, 237, 137), 0 0 20px rgb(248, 237, 137);
   }
   100% {
-    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700;
+    box-shadow: 0 0 10px rgb(248, 237, 137), 0 0 20px rgb(248, 237, 137), 0 0 30px rgb(248, 237, 137), 0 0 40px rgb(248, 237, 137);
   }
 }
 .note-count-glow {
@@ -361,13 +363,12 @@ body {
 }
 
 .keyboard {
-  text-align: center;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(212, 209, 209);
+  background-color: rgb(227, 227, 227);
   width: 25%;
   border: 1px inset #1b1b1b;
   border-radius: 16px;
@@ -379,6 +380,7 @@ body {
   height: 3em;
   margin: 0.2em;
   width: 100%;
+  padding-bottom: 5px;
 }
 
 .keyboard-row > * {
