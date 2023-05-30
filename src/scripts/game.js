@@ -10,7 +10,6 @@ const melodies = [
     ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
     ["C4", "G4", "C5", "Bb4", "A4", "Bb4", "Eb4"],
     ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
-
 ];
 
 export class Game {
