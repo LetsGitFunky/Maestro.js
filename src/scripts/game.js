@@ -1,15 +1,17 @@
 import { playMelody, playNote, playTriumphSound } from './sound.js';
 
 const melodies = [
+    ["C4", "D4"]
     ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
     ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
-    ["C4", "C5", "B4", "G4", "A4", "B4", "C5"]
+    ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
+    
 ];
 
 export class Game {
     constructor() {
-        this.currentMelody = ["C4", "D4"]; //test melody for youWin logic
-        // this.currentMelody = [];
+        // this.currentMelody = ["C4", "D4"]; //test melody for youWin logic
+        this.currentMelody = [];
         this.userMelody = [];
         this.userMelodyTemp = [];
         this.isPlaying = false;
@@ -18,9 +20,11 @@ export class Game {
     }
 
     startNewGame() {
-        // let randomIndex = Math.floor(Math.random() * melodies.length); // comment out for youWin testing
-        // this.currentMelody = melodies[randomIndex]; // comment out for youWin testing
+        let randomIndex = Math.floor(Math.random() * melodies.length); // comment out for youWin testing
+        this.currentMelody = melodies[randomIndex]; // comment out for youWin testing
+        this.hideMessage();
         this.userMelody = [];
+        this.userMelodyTemp = [];
         setTimeout(() => this.playCurrentMelody(), 500);
     }
 
@@ -80,6 +84,11 @@ export class Game {
             playTriumphSound();
         }, 750);
 
+        // reset values
+        this.currentMelody = [];
+        this.userMelody = [];
+        this.userMelodyTemp = [];
+
         // Get the message element
         const messageElement = document.getElementById('message');
 
@@ -91,5 +100,11 @@ export class Game {
         messageElement.classList.add('show');
 
     }
+
+    hideMessage() {
+        const messageElement = document.getElementById('message');
+        messageElement.classList.remove('show');
+    }
+
 
 }
