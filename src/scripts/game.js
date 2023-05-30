@@ -8,8 +8,8 @@ const melodies = [
 
 export class Game {
     constructor() {
-        // this.currentMelody = ["C4", "D4"]; //test melody for youWin logic
-        this.currentMelody = [];
+        this.currentMelody = ["C4", "D4"]; //test melody for youWin logic
+        // this.currentMelody = [];
         this.userMelody = [];
         this.userMelodyTemp = [];
         this.isPlaying = false;
@@ -18,8 +18,8 @@ export class Game {
     }
 
     startNewGame() {
-        let randomIndex = Math.floor(Math.random() * melodies.length); // comment out for youWin testing
-        this.currentMelody = melodies[randomIndex]; // comment out for youWin testing
+        // let randomIndex = Math.floor(Math.random() * melodies.length); // comment out for youWin testing
+        // this.currentMelody = melodies[randomIndex]; // comment out for youWin testing
         this.userMelody = [];
         setTimeout(() => this.playCurrentMelody(), 500);
     }
@@ -85,7 +85,7 @@ export class Game {
 
         // Set the message text
         // messageElement.textContent = "Congratulations, you've completed the melody! Click here to start a new game.";
-        messageElement.innerHTML = "Congratulations, you've completed the melody!";
+        messageElement.innerHTML = "Congratulations, you have completed the melody! <br> Encore!";
 
         // Add the show class to start the animation
         messageElement.classList.add('show');

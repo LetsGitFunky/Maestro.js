@@ -6,64 +6,125 @@ body {
 .piano-container {
     display: flex;
     justify-content: center;
+
 }
 
 #piano {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     border: 1px solid #000;
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 20px;
-    width: 420px;
+    width: 90%;
+    max-width: 960px;
     background-image: url("../assets/images/ebony.jpg");
 }
 
 .white-key {
-    height: 180px;
-    width: 50px;
-    border: 1px solid black;
-    // background-color: white;
+    height: 27vh;
+    width: calc(100% / 13);
+    border: 0.5px inset black;
+    border-radius: 4px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     z-index: 1;
     position: relative;
     background: linear-gradient(180deg, #f8f8f8 10%, white 90%);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    margin: 0 -2px;
+    margin: 0 -0.4px;
+}
+
+.white-key::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 8%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+    pointer-events: none;
+}
+
+.white-key::after {
+    content: '';
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(229, 227, 227, 0.5) 80%);
+    pointer-events: none;
+}
+
+.white-key:hover {
+    background: linear-gradient(180deg, #eee 10%, #ccc 90%);
 }
 
 .white-key:active {
-    background: rgb(181, 181, 181);
-    // background: linear-gradient(180deg, #eee 10%, #ccc 90%);
-}
-
-.white-key.active {
-    background: rgb(181, 181, 181);
-    /* You can add additional styles here if you want */
-}
-
-.white-key.computer-active {
     background: cyan;
 }
 
-.black-key {
-    height: 100px;
-    width: 35px;
-    border: 1px solid black;
-    background-color: black;
-    z-index: 2;
-    position: relative;
-    margin-left: -17px;
-    margin-right: -17px;
-    margin-top: -80px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+.white-key.active {
+    background: cyan;
 }
 
-.black-key:active {
+.white-key.computer-active {
+    background: linear-gradient(180deg, #eee 10%, #ccc 90%);
+}
+
+.black-key {
+    height: 15vh;
+    width: calc((100% / 14) * 0.6);
+    border: 1px inset black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: linear-gradient(to bottom, rgba(30,30,30,1) 0%, rgba(0,0,0,1) 80%);
+    z-index: 2;
+    position: relative;
+    margin-left: -22px;
+    margin-right: -22px;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.black-key::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+    pointer-events: none;
+}
+
+.black-key::after {
+    content: '';
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 80%);
+    pointer-events: none;
+}
+
+.black-key:hover {
     background: rgb(55, 53, 55);
 }
 
+.black-key:active {
+    background: cyan;
+}
+
 .black-key.active {
+    background: cyan;
+}
+
+.black-key.computer-active {
     background: rgb(55, 53, 55);
 }
 
@@ -72,19 +133,16 @@ body {
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 5px 0;
-    font-size: 14px;
+    padding: 20px 0;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+    z-index: 3;
 }
 
 .black-name {
     color: whitesmoke;
-    padding: 7px 0;
-}
-
-// cpu melody key color changes
-
-
-.black-key.computer-active {
-    background: cyan;
+    padding: 20px 0;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 3;
 }

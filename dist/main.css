@@ -14,57 +14,119 @@ body {
 #piano {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   border: 1px solid #000;
   border-radius: 16px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 20px;
-  width: 420px;
+  width: 90%;
+  max-width: 960px;
   background-image: url("../assets/images/ebony.jpg");
 }
 
 .white-key {
-  height: 180px;
-  width: 50px;
-  border: 1px solid black;
+  height: 27vh;
+  width: 7.6923076923%;
+  border: 0.5px inset black;
+  border-radius: 4px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   z-index: 1;
   position: relative;
   background: linear-gradient(180deg, #f8f8f8 10%, white 90%);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  margin: 0 -2px;
+  margin: 0 -0.4px;
+}
+
+.white-key::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 8%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.white-key::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(229, 227, 227, 0.5) 80%);
+  pointer-events: none;
+}
+
+.white-key:hover {
+  background: linear-gradient(180deg, #eee 10%, #ccc 90%);
 }
 
 .white-key:active {
-  background: rgb(181, 181, 181);
-}
-
-.white-key.active {
-  background: rgb(181, 181, 181);
-  /* You can add additional styles here if you want */
-}
-
-.white-key.computer-active {
   background: cyan;
 }
 
-.black-key {
-  height: 100px;
-  width: 35px;
-  border: 1px solid black;
-  background-color: black;
-  z-index: 2;
-  position: relative;
-  margin-left: -17px;
-  margin-right: -17px;
-  margin-top: -80px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+.white-key.active {
+  background: cyan;
 }
 
-.black-key:active {
+.white-key.computer-active {
+  background: linear-gradient(180deg, #eee 10%, #ccc 90%);
+}
+
+.black-key {
+  height: 15vh;
+  width: 4.2857142857%;
+  border: 1px inset black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: linear-gradient(to bottom, rgb(30, 30, 30) 0%, rgb(0, 0, 0) 80%);
+  z-index: 2;
+  position: relative;
+  margin-left: -22px;
+  margin-right: -22px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.black-key::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.black-key::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 80%);
+  pointer-events: none;
+}
+
+.black-key:hover {
   background: rgb(55, 53, 55);
 }
 
+.black-key:active {
+  background: cyan;
+}
+
 .black-key.active {
+  background: cyan;
+}
+
+.black-key.computer-active {
   background: rgb(55, 53, 55);
 }
 
@@ -73,18 +135,18 @@ body {
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 5px 0;
-  font-size: 14px;
+  padding: 20px 0;
+  font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
+  z-index: 3;
 }
 
 .black-name {
   color: whitesmoke;
-  padding: 7px 0;
-}
-
-.black-key.computer-active {
-  background: cyan;
+  padding: 20px 0;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 3;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -149,15 +211,18 @@ table {
   opacity: 0;
   transition: opacity 2s;
   position: fixed;
-  top: 50%;
+  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2em;
+  transform: translateX(-50%);
+  font-size: 2.2vw;
+  font-family: cursive;
   text-align: center;
   background-color: white;
+  border: 6px ridge gold;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+  z-index: 4;
 }
 
 .message.show {
@@ -165,29 +230,37 @@ table {
   opacity: 1;
 }
 
-#new-game {
-  display: inline-block;
-  background: linear-gradient(180deg, #f8f8f8 10%, white 90%);
-  border: 1px solid black;
-  color: black;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 16px;
+.piano-button {
+  display: block;
+  background: linear-gradient(-30deg, #1e1e1e 20%, rgb(65, 63, 63) 80%);
+  border: 1px ridge rgb(255, 255, 255);
+  color: rgb(249, 249, 247);
+  padding: 1vh 2vw;
+  margin: 1vh;
+  border-radius: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 15vw;
+  max-width: 150px;
+  height: 6vh;
 }
 
-#new-game:hover {
-  background: rgb(181, 181, 181);
-  color: black;
+.piano-button:hover {
+  background: linear-gradient(30deg, white, rgb(97, 87, 87));
+  color: rgb(43, 43, 43);
 }
 
-#new-game:active {
+.piano-button:active {
   background: rgb(55, 53, 55);
   color: white;
+}
+
+.button-column {
+  display: flex;
+  flex-direction: column;
 }
 
 #instructions {
@@ -197,7 +270,7 @@ table {
   border-radius: 16px;
   width: 70%;
   margin: 20px auto;
-  font-family: "Arial", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.3em;
   line-height: 1.6em;
   box-shadow: 0 0 10px #f9f6f2;
