@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newGameButton = document.getElementById('new-game');
     newGameButton.addEventListener('click', async () => {
+        if (game.isPracticeMode === true) {
+            game.isPracticeMode === false;
+        }
         game.startNewGame();
     });
 

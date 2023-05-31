@@ -1,3 +1,5 @@
+import * as Tone from "tone"
+import { Player } from 'tone';
 import { playMelody, playNote, playTriumphSound } from './sound.js';
 
 // let randomIndex = 0;
@@ -13,6 +15,8 @@ const melodies = [
     ["C4", "A4", "Bb4", "C4", "C5", "Bb4", "A4", "Bb4"],
     ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
     ["A4", "A4", "C5", "A4", "G4", "F4", "E4"],
+    ["C4", "D4", "Eb", "F4", "G4", "Eb4", "G4", "Gb4", "D4", "Gb4", "F4", "Db4", "F4"],
+    ["C4", "D4", "E4", "G4", "A4", "C5"],
 ];
 
 // const songList = [
@@ -32,13 +36,14 @@ const melodies = [
 //     "testMelody": ["C4", "D4"],
 //     "testMelody2": ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
 //     "testMelody3": ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
-//     "Somewhere Over The Rainbow": ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
-//     "Smoke on the Water": ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
-//     "Sunshine of Your Love": ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
-//     "Next Episode": ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
-//     "We Want The Funk": ["C4", "A4", "Bb4", "C4", "C5", "Bb4", "A4", "Bb4"],
-//     "Iron Man": ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
-//     "Seven Nation Army": ["A4", "A4", "C5", "A4", "G4", "F4", "E4"]
+//     "somewhereOverTheRainbow": ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
+//     "smokeontheWater": ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
+//     "sunshineofYourLove": ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
+//     "nextEpisode": ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
+//     "weWantTheFunk": ["C4", "A4", "Bb4", "C4", "C5", "Bb4", "A4", "Bb4"],
+//     "ironMan": ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
+//     "sevenNationArmy": ["A4", "A4", "C5", "A4", "G4", "F4", "E4"],
+//     "grieg": ["C4", "D4", "Eb", "F4", "G4", "Eb4", "G4", "Gb4", "D4", "Gb4", "F4", "Db4", "F4"],
 // };
 
 export class Game {
@@ -57,7 +62,18 @@ export class Game {
     }
 
 
+    // if (itemContainer.style.display === 'flex') {
+    //     itemContainer.style.display = 'none';
+    // } else {
+    //     itemContainer.style.display = 'flex';
+    // };
+
     togglePracticeMode() {
+        // if (this.isPracticeMode === true) {
+        //     this.isPracticeMode === false
+        // } else {
+        //     this.isPracticeMode === true;
+        // }
         this.isPracticeMode = !this.isPracticeMode;
         this.hideMessage();
     }
@@ -132,9 +148,16 @@ export class Game {
 
     youWin() {
         // Add a delay before playing the triumphant sound
-        setTimeout(() => {
-            playTriumphSound();
-        }, 750);
+        if (this.currentMelody === melodies[4]) {
+            let smoke = new Player(`../assets/sounds/smoke.wav`).toDestination();
+            setTimeout(() => {
+                smoke.start();
+            }, 750);
+        } else {
+            setTimeout(() => {
+                playTriumphSound();
+            }, 750);
+        }
 
         // reset values
         this.currentMelody = [];
@@ -155,7 +178,8 @@ export class Game {
         }, 5000);
 
         //
-        this.isPracticeMode = true;
+        // this.isPracticeMode = true;
+        this.togglePracticeMode();
     }
 
     // helper function so that victory message persists until start of next game.

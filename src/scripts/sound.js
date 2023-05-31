@@ -1,7 +1,15 @@
 import * as Tone from 'tone';
 import { Player } from 'tone';
 
-let triumphSound = new Player("../../assets/sounds/triumphantSound.wav").toDestination();
+// let triumphSound = new Player("../../assets/sounds/triumphantSound.wav").toDestination();
+
+let triumphSound = new Player("../assets/sounds/triumphantSound.wav").toDestination();
+
+// function youWinSnippet(songName) {
+//     let clip = new Player(`../assets/sounds/${songName}.wav`).toDestination();
+//     clip.start();
+// }
+
 
 export function playTriumphSound() {
     triumphSound.start();
@@ -9,11 +17,24 @@ export function playTriumphSound() {
 
 export const synth = new Tone.Synth().toDestination();
 
+// export function playNote(note) {
+//     if (synth.state !== 'started') {
+//         synth.triggerAttack(note);
+//         setTimeout(() => synth.triggerRelease(), 500);
+//     }
+// }
+
 export function playNote(note) {
-    if (synth.state !== 'started') {
-        synth.triggerAttack(note);
-        setTimeout(() => synth.triggerRelease(), 500);
+    // If the synth is already playing a note, release it
+    if (synth.state === 'started') {
+        synth.triggerRelease();
     }
+
+    // Then start the new note
+    synth.triggerAttack(note);
+
+    // And schedule the release of this note after 500 ms
+    setTimeout(() => synth.triggerRelease(), 500);
 }
 
 export function playMelody(melody, game) {
