@@ -18,11 +18,14 @@
     padding: 0px 0px 10px 0px;
     width: 90%;
     max-width: 960px;
+    min-width: 740px;
+    min-height: 240px;
     background-image: url("../assets/images/ebony.jpg");
 }
 
 .white-key {
     height: 27vh;
+    min-height: 220px;
     width: calc(100% / 13);
     border: 0.5px inset black;
     border-radius: 4px;
@@ -81,6 +84,7 @@
 
 .black-key {
     height: 15vh;
+    min-height: 120px;
     width: calc((100% / 14) * 0.6);
     border: 1px inset black;
     border-bottom-left-radius: 5px;

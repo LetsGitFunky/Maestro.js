@@ -7,7 +7,7 @@ body {
     gap: 10px;
     margin: 0;
     background: #222;
-    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica', Arial, sans-serif;
 }
 
 .top-section {
@@ -31,7 +31,7 @@ body {
     height: 60%;
     margin: 20px auto;
     // font-family: Arial, Helvetica, sans-serif;
-    // font-family: Montserrat;
+    font-family: Montserrat;
     font-size: 1.3em;
     line-height: 1.6em;
     box-shadow: 0 0 10px #f9f6f2;
@@ -57,7 +57,7 @@ h2 {
 
 #instructions strong {
     color: ivory;
-    font-size: 1.01em; /* This will make the strong text 1.5 times larger than the surrounding text */
+    font-size: 1.01em;
     font-weight: bold;
 }
 
@@ -119,6 +119,7 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     width: 15vw;
     max-width: 150px;
+    min-width: 140px;
     height: 6vh;
     cursor: pointer;
 }
