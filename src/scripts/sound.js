@@ -10,9 +10,19 @@ let triumphSound = new Player("../assets/sounds/triumphantSound.wav").toDestinat
 //     clip.start();
 // }
 
+triumphSound.load().then(() => {
+    triumphSound.toDestination();
+});
+
+
+// export function playTriumphSound() {
+//     triumphSound.start();
+// }
 
 export function playTriumphSound() {
-    triumphSound.start();
+    if (triumphSound.loaded) {
+        triumphSound.start();
+    }
 }
 
 export const synth = new Tone.Synth().toDestination();
@@ -24,6 +34,7 @@ export const synth = new Tone.Synth().toDestination();
 //     }
 // }
 
+// patch for double note error
 export function playNote(note) {
     // If the synth is already playing a note, release it
     if (synth.state === 'started') {

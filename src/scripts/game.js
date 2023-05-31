@@ -1,8 +1,7 @@
-import * as Tone from "tone"
+// import * as Tone from "tone"
 import { Player } from 'tone';
 import { playMelody, playNote, playTriumphSound } from './sound.js';
 
-// let randomIndex = 0;
 
 const melodies = [
     ["C4", "D4"],
@@ -19,19 +18,7 @@ const melodies = [
     ["C4", "D4", "E4", "G4", "A4", "C5"],
 ];
 
-// const songList = [
-//     "testMelody",
-//     "testMelody2",
-//     "testMelody3",
-//     "Somewhere Over The Rainbow",
-//     "Smoke on the Water",
-//     "Sunshine of Your Love",
-//     "Next Episode",
-//     "We Want The Funk",
-//     "Iron Man",
-//     "Seven Nation Army"
-// ];
-
+// object for victory songs
 // let songs = {
 //     "testMelody": ["C4", "D4"],
 //     "testMelody2": ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
@@ -60,13 +47,6 @@ export class Game {
     toggleEarTrainingMode() {
         this.isEarTrainingMode = !this.isEarTrainingMode;
     }
-
-
-    // if (itemContainer.style.display === 'flex') {
-    //     itemContainer.style.display = 'none';
-    // } else {
-    //     itemContainer.style.display = 'flex';
-    // };
 
     togglePracticeMode() {
         if (this.isPracticeMode === false) {
@@ -117,7 +97,7 @@ export class Game {
 
     handleNotePlayed(note) {
         if (this.isPlaying) return;
-        console.log(this.isPracticeMode)
+        // console.log(this.isPracticeMode)
         if (this.isPracticeMode) {
             playNote(note);
         } else {

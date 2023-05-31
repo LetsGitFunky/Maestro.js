@@ -41,7 +41,7 @@ export function attachEventListeners(game) {
     window.addEventListener("keydown", (e) => {
         e.stopPropagation();
         if (keyMap[e.key]) {
-            console.log(keyMap[e.key].note)
+            // console.log(keyMap[e.key].note)
             playNote(keyMap[e.key].note);
             keyMap[e.key].div.classList.add("active");
             setTimeout(() => keyMap[e.key].div.classList.remove('active'), 200);
@@ -50,16 +50,4 @@ export function attachEventListeners(game) {
             }
         }
     })
-
-
-    // ATTEMPTING EAR TRAINING MODE
-    // if (!attachEventListeners.hasRun) {
-    //     const earTrainingButton = document.getElementById('ear-training-mode');
-    //     earTrainingButton.addEventListener('click', () => {
-    //         game.earTrainingMode = !game.earTrainingMode;
-    //         earTrainingButton.innerText = game.earTrainingMode ? 'Disable Ear Training Mode' : 'Enable Ear Training Mode';
-    //     });
-    //     attachEventListeners.hasRun = true;
-    // }
-
 };
