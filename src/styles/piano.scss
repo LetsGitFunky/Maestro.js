@@ -64,15 +64,19 @@
 }
 
 .white-key:active {
-    background: cyan;
+    // background: cyan;
+    background: linear-gradient(180deg, #eee 10%, #ccc 90%);
 }
 
 .white-key.active {
-    background: cyan;
+    // background: cyan;
+    background: linear-gradient(180deg, #eee 10%, #ccc 90%);
 }
 
 .white-key.computer-active {
-    background: linear-gradient(180deg, #eee 10%, #ccc 90%);
+    // background: linear-gradient(180deg, #eee 10%, #ccc 90%);
+    // background: rgb(248, 237, 137);
+    background: cyan;
 }
 
 .black-key {
@@ -118,15 +122,19 @@
 }
 
 .black-key:active {
-    background: cyan;
+    background: rgb(55, 53, 55);
+    // background: cyan;
 }
 
 .black-key.active {
-    background: cyan;
+    background: rgb(55, 53, 55);
+    // background: cyan;
 }
 
 .black-key.computer-active {
-    background: rgb(55, 53, 55);
+    // background: rgb(55, 53, 55);
+    // background: rgb(248, 237, 137);
+    background: cyan;
 }
 
 .note-name {

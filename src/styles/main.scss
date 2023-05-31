@@ -7,7 +7,7 @@ body {
     gap: 10px;
     margin: 0;
     background: #222;
-    font-family: Montserrat;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }
 
 .top-section {
@@ -26,6 +26,7 @@ body {
     padding: 20px;
     border: 1px ridge #1b1b1b;
     border-radius: 16px;
+    min-width: 740px;
     width: 70%;
     height: 60%;
     margin: 20px auto;
@@ -185,7 +186,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     background-color: rgb(227, 227, 227);
-    width: 25.5%;
+    width: 440px;
     border: 1px inset #1b1b1b;
     border-radius: 16px;
     align-self: center;
@@ -238,15 +239,3 @@ h2 {
     border: none;
     box-shadow: none;
 }
-
-// #popUp {
-//     display: none;
-//     /* Other styles for the modal go here */
-// }
-
-// .bottom-section {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     align-items: center;
-// }

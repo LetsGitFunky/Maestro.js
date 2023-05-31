@@ -4,9 +4,6 @@ import { handleNotePlayed } from './game.js';
 
 
 export function attachEventListeners(game) {
-    // const synth = new Tone.Synth().toDestination();
-    // console.log(game), "this is game"
-    // console.log(piano, "this is piano")
 
     const keyMap = {
         "a": { note: "C4", div: document.querySelector('#C4') },
@@ -39,7 +36,6 @@ export function attachEventListeners(game) {
     window.addEventListener("keydown", (e) => {
         e.stopPropagation();
         if (keyMap[e.key]) {
-            // console.log(keyMap[e.key].note)
             playNote(keyMap[e.key].note);
             keyMap[e.key].div.classList.add("active");
             setTimeout(() => keyMap[e.key].div.classList.remove('active'), 200);
