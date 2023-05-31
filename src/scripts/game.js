@@ -69,12 +69,12 @@ export class Game {
     // };
 
     togglePracticeMode() {
-        // if (this.isPracticeMode === true) {
-        //     this.isPracticeMode === false
-        // } else {
-        //     this.isPracticeMode === true;
-        // }
-        this.isPracticeMode = !this.isPracticeMode;
+        if (this.isPracticeMode === false) {
+            this.isPracticeMode = true
+        } else {
+            this.isPracticeMode = false;
+        }
+        // this.isPracticeMode = !this.isPracticeMode;
         this.hideMessage();
     }
 
@@ -91,18 +91,21 @@ export class Game {
 
 
     startNewGame() {
+        console.log(this.isPracticeMode)
         this.isPracticeMode = false;
+        console.log(this.isPracticeMode)
         let randomIndex = Math.floor(Math.random() * melodies.length);
-        // randomIndex = Math.floor(Math.random() * melodies.length); // in process for songIndex victory logic
         this.currentMelody = melodies[randomIndex];
         this.hideMessage();
         this.userMelody = [];
         this.updateNoteCount();
         this.userMelodyTemp = [];
         setTimeout(() => this.playCurrentMelody(), 500);
+        console.log(this.isPracticeMode)
     }
 
     playCurrentMelody() {
+        this.isPracticeMode = false;
         if (!this.isPlaying) {
             this.isPlaying = true;
             const melodySlice = this.currentMelody.slice(0, this.userMelody.length + 1);
@@ -114,7 +117,7 @@ export class Game {
 
     handleNotePlayed(note) {
         if (this.isPlaying) return;
-
+        console.log(this.isPracticeMode)
         if (this.isPracticeMode) {
             playNote(note);
         } else {
@@ -147,7 +150,6 @@ export class Game {
     }
 
     youWin() {
-        // Add a delay before playing the triumphant sound
         if (this.currentMelody === melodies[4]) {
             let smoke = new Player(`../assets/sounds/smoke.wav`).toDestination();
             setTimeout(() => {
@@ -178,8 +180,8 @@ export class Game {
         }, 5000);
 
         //
-        // this.isPracticeMode = true;
-        this.togglePracticeMode();
+        this.isPracticeMode = true;
+        // this.togglePracticeMode();
     }
 
     // helper function so that victory message persists until start of next game.

@@ -3,7 +3,7 @@ import { Player } from 'tone';
 
 // let triumphSound = new Player("../../assets/sounds/triumphantSound.wav").toDestination();
 
-let triumphSound = new Player("./assets/sounds/triumphantSound.wav").toDestination();
+let triumphSound = new Player("../assets/sounds/triumphantSound.wav").toDestination();
 
 // function youWinSnippet(songName) {
 //     let clip = new Player(`../assets/sounds/${songName}.wav`).toDestination();
