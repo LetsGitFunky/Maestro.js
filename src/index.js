@@ -10,27 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
     attachEventListeners(game);  // Attach the event listeners to the page elements
 
     const newGameButton = document.getElementById('new-game');
-
     newGameButton.addEventListener('click', async () => {
         game.startNewGame();
     });
 
     const practiceModeButton = document.getElementById('practice-mode');
-
     practiceModeButton.addEventListener('click', () => {
         game.togglePracticeMode();
     });
 
     const earTrainingModeButton = document.getElementById('ear-training');
-
     earTrainingModeButton.addEventListener('click', () => {
         game.toggleEarTrainingMode();
     });
 
     const viewDiagramButton = document.getElementById("viewDiagramButton");
-
     const keyboard = document.getElementsByClassName("keyboard")[0];
-
     viewDiagramButton.addEventListener("click", (e) => {
         let keyboardStyle = window.getComputedStyle(keyboard).visibility;
         if (keyboardStyle === "hidden") {

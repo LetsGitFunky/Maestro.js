@@ -1,5 +1,7 @@
 import { playMelody, playNote, playTriumphSound } from './sound.js';
 
+// let randomIndex = 0;
+
 const melodies = [
     ["C4", "D4"],
     ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
@@ -8,9 +10,36 @@ const melodies = [
     ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
     ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
     ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
-    ["C4", "G4", "C5", "Bb4", "A4", "Bb4", "Eb4"],
+    ["C4", "A4", "Bb4", "C4", "C5", "Bb4", "A4", "Bb4"],
     ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
+    ["A4", "A4", "C5", "A4", "G4", "F4", "E4"],
 ];
+
+// const songList = [
+//     "testMelody",
+//     "testMelody2",
+//     "testMelody3",
+//     "Somewhere Over The Rainbow",
+//     "Smoke on the Water",
+//     "Sunshine of Your Love",
+//     "Next Episode",
+//     "We Want The Funk",
+//     "Iron Man",
+//     "Seven Nation Army"
+// ];
+
+// let songs = {
+//     "testMelody": ["C4", "D4"],
+//     "testMelody2": ["C4", "E4", "D4", "F4", "E4", "D4", "C4"],
+//     "testMelody3": ["C4", "G4", "A4", "G4", "E4", "F4", "D4", "E4", "C4"],
+//     "Somewhere Over The Rainbow": ["C4", "C5", "B4", "G4", "A4", "B4", "C5"],
+//     "Smoke on the Water": ["C4", "Eb4", "F4", "C4", "Eb4", "Gb4", "F4", "C4", "Eb4", "F4", "Eb4", "C4"],
+//     "Sunshine of Your Love": ["C5", "C5", "Bb4", "C5", "G4", "Gb4", "F4", "C4", "Eb4", "C4"],
+//     "Next Episode": ["C4", "G4", "G4", "F4", "G4", "F4", "Eb4", "F4", "F4", "Eb4", "C4", "Eb4"],
+//     "We Want The Funk": ["C4", "A4", "Bb4", "C4", "C5", "Bb4", "A4", "Bb4"],
+//     "Iron Man": ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
+//     "Seven Nation Army": ["A4", "A4", "C5", "A4", "G4", "F4", "E4"]
+// };
 
 export class Game {
     constructor() {
@@ -21,7 +50,6 @@ export class Game {
         this.isPlaying = false;
         this.isPracticeMode = true;
         this.earTrainingMode = false;
-        // this.startNewGame();
     }
 
     toggleEarTrainingMode() {
@@ -48,8 +76,9 @@ export class Game {
 
     startNewGame() {
         this.isPracticeMode = false;
-        let randomIndex = Math.floor(Math.random() * melodies.length); // comment out for youWin testingasdg
-        this.currentMelody = melodies[randomIndex]; // comment out for youWin testing
+        let randomIndex = Math.floor(Math.random() * melodies.length);
+        // randomIndex = Math.floor(Math.random() * melodies.length); // in process for songIndex victory logic
+        this.currentMelody = melodies[randomIndex];
         this.hideMessage();
         this.userMelody = [];
         this.updateNoteCount();
@@ -120,6 +149,10 @@ export class Game {
 
         // Add the show class to start the animation
         messageElement.classList.add('show');
+
+        setTimeout(() => {
+            this.hideMessage();
+        }, 5000);
 
         //
         this.isPracticeMode = true;
