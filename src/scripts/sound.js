@@ -3,27 +3,26 @@ import { Player } from 'tone';
 
 // let triumphSound = new Player("../../assets/sounds/triumphantSound.wav").toDestination();
 
-let triumphSound = new Player("../assets/sounds/triumphantSound.wav").toDestination();
+let triumphSound = new Player("./assets/sounds/triumphantSound.wav").toDestination();
 
-// function youWinSnippet(songName) {
+// triumphSound.load().then(() => {
+//     triumphSound.toDestination();
+// });
+
+// function youWinSnippet(songName) {  //
 //     let clip = new Player(`../assets/sounds/${songName}.wav`).toDestination();
 //     clip.start();
 // }
 
-triumphSound.load().then(() => {
-    triumphSound.toDestination();
-});
-
+export function playTriumphSound() {
+    triumphSound.start();
+}
 
 // export function playTriumphSound() {
-//     triumphSound.start();
+//     if (triumphSound.loaded) {
+//         triumphSound.start();
+//     }
 // }
-
-export function playTriumphSound() {
-    if (triumphSound.loaded) {
-        triumphSound.start();
-    }
-}
 
 export const synth = new Tone.Synth().toDestination();
 

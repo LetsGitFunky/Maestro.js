@@ -36,8 +36,6 @@ export function attachEventListeners(game) {
         });
     });
 
-
-
     window.addEventListener("keydown", (e) => {
         e.stopPropagation();
         if (keyMap[e.key]) {
