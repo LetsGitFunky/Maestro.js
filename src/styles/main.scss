@@ -81,7 +81,7 @@ h2 {
 #instructions p {
     font-weight: bold;
     font-size: 24px;
-    padding: 3px;
+    padding-bottom: 4px;
 }
 
 #instructions strong {
@@ -175,6 +175,11 @@ h2 {
     flex-direction: column;
 }
 
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgb(248, 237, 137), 0 0 10px rgb(248, 237, 137), 0 0 15px rgb(248, 237, 137), 0 0 20px rgb(248, 237, 137); }
+    100% { box-shadow: 0 0 10px rgb(248, 237, 137), 0 0 20px rgb(248, 237, 137), 0 0 30px rgb(248, 237, 137), 0 0 40px rgb(248, 237, 137); }
+}
+
 .note-count {
     display: block;
     background-image: url("../assets/images/ebony.jpg");
@@ -192,11 +197,6 @@ h2 {
     width: 80%;
     height: 24px;
     cursor: default;
-}
-
-@keyframes glow {
-    0% { box-shadow: 0 0 5px rgb(248, 237, 137), 0 0 10px rgb(248, 237, 137), 0 0 15px rgb(248, 237, 137), 0 0 20px rgb(248, 237, 137); }
-    100% { box-shadow: 0 0 10px rgb(248, 237, 137), 0 0 20px rgb(248, 237, 137), 0 0 30px rgb(248, 237, 137), 0 0 40px rgb(248, 237, 137); }
 }
 
 .note-count-glow {
