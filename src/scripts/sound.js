@@ -1,48 +1,20 @@
 import * as Tone from 'tone';
 import { Player } from 'tone';
 
-// let triumphSound = new Player("../../assets/sounds/triumphantSound.wav").toDestination();
-
 let triumphSound = new Player("./src/sounds/triumphantSound.wav").toDestination();
 
-// triumphSound.load().then(() => {
-//     triumphSound.toDestination();
-// });
 
-// function youWinSnippet(songName) {  //
-//     let clip = new Player(`../assets/sounds/${songName}.wav`).toDestination();
-//     clip.start();
-// }
-
-export function playTriumphSound() {
-    triumphSound.start();
-}
-
-// export function playTriumphSound() {
-//     if (triumphSound.loaded) {
-//         triumphSound.start();
-//     }
-// }
-
+export function playTriumphSound() { triumphSound.start() };
 export const synth = new Tone.Synth().toDestination();
 
-// export function playNote(note) {
-//     if (synth.state !== 'started') {
-//         synth.triggerAttack(note);
-//         setTimeout(() => synth.triggerRelease(), 500);
-//     }
-// }
-
 // patch for double note error
-export function playNote(note) {
+export async function playNote(note) {
     // If the synth is already playing a note, release it
     if (synth.state === 'started') {
-        synth.triggerRelease();
+        await synth.triggerRelease();
     }
-
     // Then start the new note
     synth.triggerAttack(note);
-
     // And schedule the release of this note after 500 ms
     setTimeout(() => synth.triggerRelease(), 500);
 }
@@ -71,3 +43,8 @@ export function playMelody(melody, game) {
         });
     });
 };
+
+// function youWinSnippet(songName) {  // function to replace triumphSound with melody specific winning song.
+//     let clip = new Player(`../assets/sounds/${songName}.wav`).toDestination();
+//     clip.start();
+// }

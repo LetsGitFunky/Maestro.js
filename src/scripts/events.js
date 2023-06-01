@@ -2,9 +2,7 @@ import * as Tone from 'tone';
 import { playNote, synth } from './sound';
 import { handleNotePlayed } from './game.js';
 
-
 export function attachEventListeners(game) {
-
     const keyMap = {
         "a": { note: "C4", div: document.querySelector('#C4') },
         "w": { note: "Db4", div: document.querySelector('#Db4') },
@@ -22,7 +20,6 @@ export function attachEventListeners(game) {
     };
 
     const pianoKeys = document.querySelectorAll(".piano-key");
-
     pianoKeys.forEach(key => {
         key.addEventListener("click", (e) => {
             const note = e.target.id;

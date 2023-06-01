@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
         game.startNewGame();
     });
 
-    const practiceModeButton = document.getElementById('practice-mode');
-    practiceModeButton.addEventListener('click', () => {
-        game.togglePracticeMode();
-    });
+    // const practiceModeButton = document.getElementById('practice-mode');
+    // practiceModeButton.addEventListener('click', () => {
+    //     game.togglePracticeMode();
+    // });
 
     const earTrainingModeButton = document.getElementById('ear-training');
     earTrainingModeButton.addEventListener('click', () => {

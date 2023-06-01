@@ -14,7 +14,7 @@ const melodies = [
     ["C4", "A4", "Bb4", "C4", "C5", "Bb4", "A4", "Bb4"],
     ["C4", "Eb4", "Eb4", "F4", "F4", "Ab4", "G4", "Ab4", "G4", "Ab4", "Eb4", "Eb4", "F4", "F4"],
     ["A4", "A4", "C5", "A4", "G4", "F4", "E4"],
-    ["C4", "D4", "Eb", "F4", "G4", "Eb4", "G4", "Gb4", "D4", "Gb4", "F4", "Db4", "F4"],
+    ["C4", "D4", "Eb4", "F4", "G4", "Eb4", "G4", "Gb4", "D4", "Gb4", "F4", "Db4", "F4"],
     ["C4", "D4", "E4", "G4", "A4", "C5"],
 ];
 
@@ -40,16 +40,14 @@ export class Game {
             this.isPracticeMode = false;
         }
         // this.isPracticeMode = !this.isPracticeMode;
-        this.hideMessage();
+        // this.hideMessage(); // for practiceModeButton
     }
 
     updateNoteCount() {
         const noteCountElement = document.getElementById('note-count');
         noteCountElement.textContent = `Progress: ${this.userMelody.length} / ${this.currentMelody.length}`;
-
         // Add the glow class to the element
         noteCountElement.classList.add('note-count-glow');
-
         // Remove the class after 2 seconds (the duration of the glow animation)
         setTimeout(() => noteCountElement.classList.remove('note-count-glow'), 5000);
     }
@@ -80,7 +78,6 @@ export class Game {
 
     handleNotePlayed(note) {
         if (this.isPlaying) return;
-
         if (this.isPracticeMode) {
             playNote(note);
         } else {
@@ -119,29 +116,23 @@ export class Game {
                 playTriumphSound();
             }, 750);
         }
-
         // reset values
         this.currentMelody = [];
         this.userMelody = [];
         this.userMelodyTemp = [];
-
         // Get the message element
         const messageElement = document.getElementById('message');
-
         // Set the message text
-        messageElement.innerHTML = "Congratulations, you have completed the melody! <br> Encore!";
-
+        messageElement.innerHTML =
+        "Bravo! Encore!<br>Click 'New Game' for a new melody";
         // Add the show class to start the animation
         messageElement.classList.add('show');
-
         setTimeout(() => {
             this.hideMessage();
         }, 5000);
-
         this.isPracticeMode = true;
         // this.togglePracticeMode();
     }
-
     // helper function so that victory message persists until start of next game.
     hideMessage() {
         const messageElement = document.getElementById('message');
