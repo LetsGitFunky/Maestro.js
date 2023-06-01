@@ -40,4 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    const consoleError = console.error; // keep a reference to the original console.error function
+
+console.error = function(message) {
+    console.log(message)
+    if (message.indexOf('') > -1) {
+        // If the error message contains 'your specific error', don't log it
+        return;
+    }
+
+    // Otherwise, log it as usual
+    consoleError.apply(console, arguments);
+};
+
 });
