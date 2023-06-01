@@ -3,20 +3,16 @@ import { attachEventListeners } from './scripts/events.js';
 import { Game } from "./scripts/game.js";
 import * as Tone from 'tone';
 
-console.error = function(message) {
-    console.log(message)
-    if (message.indexOf('') > -1) {
-        // If the error message contains 'your specific error', don't log it
-        return;
-    }
-
-    // Otherwise, log it as usual
-    consoleError.apply(console, arguments);
-};
-
 let game;  // Variable to hold the current game
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const callback = () => {
+        console.log("anything")
+    }
+
+    window.addEventListener("error", callback)
+
     game = new Game();
     attachEventListeners(game);  // Attach the event listeners to the page elements
 
@@ -51,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const consoleError = console.error; // keep a reference to the original console.error function
 
 
 });

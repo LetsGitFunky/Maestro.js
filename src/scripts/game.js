@@ -77,32 +77,34 @@ export class Game {
     }
 
     handleNotePlayed(note) {
-        if (this.isPlaying) return;
-        if (this.isPracticeMode) {
-            playNote(note);
-        } else {
-            this.userMelodyTemp.push(note);
-            let userMelodyString = this.userMelodyTemp.join("");
-            let currentMelodyString = this.currentMelody.slice(0, this.userMelodyTemp.length).join("");
-            if (userMelodyString === currentMelodyString) {
-                if (this.userMelodyTemp.length === this.userMelody.length + 1) {
-                    // The user successfully entered the sequence, move to the next round
-                    this.userMelody = [...this.userMelodyTemp];
-                    this.updateNoteCount();
-                    this.userMelodyTemp = []; // Reset temporary melody
-                    // Check if the user has won the game
-                    if (this.userMelody.length === this.currentMelody.length) {
-                        this.youWin();
-                    } else {
-                        setTimeout(() => this.playCurrentMelody(), 500);
-                    }
-                }
+
+
+            if (this.isPlaying) return;
+            if (this.isPracticeMode) {
+                playNote(note);
             } else {
-                // The user made a mistake, reset the round
-                this.userMelodyTemp = [];
-                setTimeout(() => this.playCurrentMelody(), 500);
+                this.userMelodyTemp.push(note);
+                let userMelodyString = this.userMelodyTemp.join("");
+                let currentMelodyString = this.currentMelody.slice(0, this.userMelodyTemp.length).join("");
+                if (userMelodyString === currentMelodyString) {
+                    if (this.userMelodyTemp.length === this.userMelody.length + 1) {
+                        // The user successfully entered the sequence, move to the next round
+                        this.userMelody = [...this.userMelodyTemp];
+                        this.updateNoteCount();
+                        this.userMelodyTemp = []; // Reset temporary melody
+                        // Check if the user has won the game
+                        if (this.userMelody.length === this.currentMelody.length) {
+                            this.youWin();
+                        } else {
+                            setTimeout(() => this.playCurrentMelody(), 500);
+                        }
+                    }
+                } else {
+                    // The user made a mistake, reset the round
+                    this.userMelodyTemp = [];
+                    setTimeout(() => this.playCurrentMelody(), 500);
+                }
             }
-        }
     }
 
     youWin() {
