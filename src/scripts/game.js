@@ -124,7 +124,7 @@ export class Game {
         const messageElement = document.getElementById('message');
         // Set the message text
         messageElement.innerHTML =
-        "Bravo! Encore!<br>Click 'New Game' for a new melody";
+        "Bravo! Encore!<br>Click 'New Tune' for a new melody";
         // Add the show class to start the animation
         messageElement.classList.add('show');
         setTimeout(() => {

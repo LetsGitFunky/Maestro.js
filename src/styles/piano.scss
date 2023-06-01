@@ -63,18 +63,14 @@
 }
 
 .white-key:active {
-    // background: cyan;
     background: linear-gradient(180deg, #eee 10%, #ccc 90%);
 }
 
 .white-key.active {
-    // background: cyan;
     background: linear-gradient(180deg, #eee 10%, #ccc 90%);
 }
 
 .white-key.computer-active {
-    // background: linear-gradient(180deg, #eee 10%, #ccc 90%);
-    // background: rgb(248, 237, 137);
     background: cyan;
 }
 
@@ -123,17 +119,13 @@
 
 .black-key:active {
     background: rgb(55, 53, 55);
-    // background: cyan;
 }
 
 .black-key.active {
     background: rgb(55, 53, 55);
-    // background: cyan;
 }
 
 .black-key.computer-active {
-    // background: rgb(55, 53, 55);
-    // background: rgb(248, 237, 137);
     background: cyan;
 }
 
@@ -144,7 +136,6 @@
     text-align: center;
     padding: 20px 0;
     font-size: 18px;
-    // font-family: Arial, Helvetica, sans-serif;
     z-index: 3;
 }
 
@@ -152,6 +143,5 @@
     color: whitesmoke;
     padding: 20px 0;
     font-size: 18px;
-    // font-family: Arial, Helvetica, sans-serif;
     z-index: 3;
 }
