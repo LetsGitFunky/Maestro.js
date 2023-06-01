@@ -7,14 +7,28 @@ let triumphSound = new Player("./src/sounds/triumphantSound.wav").toDestination(
 export function playTriumphSound() { triumphSound.start() };
 export const synth = new Tone.Synth().toDestination();
 
+
 // patch for double note error
-export async function playNote(note) {
+// export async function playNote(note) {
+//     // If the synth is already playing a note, release it
+//     if (synth.state === 'started') {
+//         await synth.triggerRelease();
+//     }
+//     // Then start the new note
+//     synth.triggerAttack(note);
+//     // And schedule the release of this note after 500 ms
+//     setTimeout(() => synth.triggerRelease(), 500);
+// }
+
+export function playNote(note) {
     // If the synth is already playing a note, release it
     if (synth.state === 'started') {
-        await synth.triggerRelease();
+        synth.triggerRelease();
     }
     // Then start the new note
-    synth.triggerAttack(note);
+    Tone.Transport.scheduleOnce((time) => {
+        synth.triggerAttack(note, time);
+    }, "+0.1");
     // And schedule the release of this note after 500 ms
     setTimeout(() => synth.triggerRelease(), 500);
 }
