@@ -1,6 +1,33 @@
 @import "piano.scss";
 @import "_reset.scss";
 
+.social-links {
+    position: fixed;
+    right: 1%;
+    top: 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fa-brands {
+    color: #eee;
+    font-size: 3em;
+    transition: color 0.5s ease-in-out;
+}
+
+.fa-github {
+    top: 8%;
+}
+
+.fa-linkedin {
+    top: 14%;
+}
+
+.fa-brands:hover {
+    color: rgb(248, 237, 137);  /* change color on hover */
+}
+
 body {
     display: grid;
     grid-template-rows: auto auto 1fr;
@@ -31,7 +58,7 @@ body {
     height: 60%;
     margin: 20px auto;
     // font-family: Arial, Helvetica, sans-serif;
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.3em;
     line-height: 1.6em;
     box-shadow: 0 0 10px #f9f6f2;
@@ -40,13 +67,14 @@ body {
 
 h2 {
     text-align: center;
-    font-family: cursive;
+    font-family: 'Tangerine', cursive;
     text-decoration: underline;
     -webkit-text-stroke: 0.001px #f1dd70;
-    font-size: 3em;
+    font-size: 4.5em;
     color: rgb(248, 237, 137);
     margin-bottom: 21px;
     font-weight: bold;
+    padding: 1%;
 }
 
 #instructions p {
@@ -81,8 +109,9 @@ h2 {
     top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.2vw;
-    // font-family: cursive;
+    font-size: 3vw;
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
     text-align: center;
     background-color: white;
     border: 6px ridge gold;
@@ -108,8 +137,10 @@ h2 {
     border-radius: 10px;
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
-    font-family: Montserrat;
+    font-size: 1.3em;
+    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Tangerine', cursive;
+    // font-size: 1.8em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     width: 15vw;
     max-width: 150px;
@@ -149,15 +180,15 @@ h2 {
     border: 1px ridge rgb(248, 237, 137);
     color: rgb(248, 237, 137);
     -webkit-text-stroke: 0.001px #f1dd70;
-    padding: 2vh 0.5vw;
+    padding: 2vh 0.4vw;
     margin: 1vh;
     border-radius: 10px;
     text-align: center;
     font-weight: bold;
-    font-size: 19px;
-    font-family: cursive;
+    font-size: 1.9em;
+    font-family: 'Tangerine', cursive;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    width: 140px;
+    width: 80%;
     height: 24px;
     cursor: default;
 }
@@ -171,6 +202,7 @@ h2 {
     animation: glow 2.5s ease-in-out infinite alternate;
 }
 
+// styling of computer keyboard based on https://codepen.io/gschier/pen/VKgyaY
 .keyboard-container {
     display: flex;
     justify-content: center;
